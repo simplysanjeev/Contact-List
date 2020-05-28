@@ -1,0 +1,90 @@
+/* body tag */
+body{
+    margin: 0px;
+}
+
+/* contact list container */
+.contact__list__container{
+    width: 50vw;
+    min-width: 600px;
+    margin: auto;
+}
+
+/* contact list heading*/
+.contact__list__heading{
+    text-align: center;
+    width: 100%;
+    margin:20px 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #a4a3a6;
+}
+
+/* contact list*/
+.contact__list{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+/* contact */
+.contact{
+    width: 100%;
+    margin: 4px 0px;
+    background-color: #648fff;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.contact:hover{
+    background-color: #a4a3a6;
+}
+
+
+.name{
+    line-height: 0px;
+    margin-left: 10px;
+    text-transform: capitalize;
+}
+
+
+.phone{
+    line-height: 0px;
+    margin-right: 10px;
+}
+
+/* form container */
+.form__container{
+    width: 100%;
+}
+
+/* form */
+.form{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* input tag and button */
+.form input{
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.2em;
+    padding: 10px;
+}
+
+.form button{
+    border: none;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 0.2em;
+    padding: 10px;
+    background-color: #a4a3a6;
+    cursor: pointer;
+}
+
+.form button:hover{
+    background-color: #648fff; 
+}
