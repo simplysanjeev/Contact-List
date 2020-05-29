@@ -1,7 +1,8 @@
 const express = require('express');
 const port = 8000;
 const path = require('path');
-
+const db = require('./config/mongoose');
+const Contact = require('./models/contact');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -26,29 +27,34 @@ var contactList = [
 ]
 
 app.get('/', function(request, response){
-    return response.render('home', {
-        title : "My Contact List",
-        contact_list : contactList
+    Contact.find({}, function(error, contacts){
+        if(error){
+            console.log('Error in fetching from Database');
+            return;
+        }
+        return response.render('home', {title: 'Contact List', contact_list: contacts});
     });
 });
 
 app.post('/create-contact', function(request, response){
-    // response.redirect('back');
-    console.log(request.body);
-    contactList.push(request.body);
-    return response.redirect('back');
+    Contact.create(request.body, function(error, newContact){
+        if(error){
+            console.log('Error while creating the Contact');
+            return;
+        }
+        return response.redirect('back');
+    });
 });
 
 app.get('/delete-contact/', function(request, response){
-    console.log(request.query);
-    let phone = request.query.phone;
-    console.log(phone.phone);
-    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
-    console.log(contactIndex);
-    if(contactIndex != -1){
-        contactList.splice(contactIndex, 1);
-    }
-    return response.redirect('back');
+    let id = request.query.id;
+    Contact.findByIdAndDelete(id, function(error){
+        if(error){
+            console.log('Error in deleting the object from databse');
+            return;
+        }
+        return response.redirect('back');
+    });
 })
 app.listen(port, function(error){
     if(error){
