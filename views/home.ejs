@@ -12,8 +12,16 @@
             <ul class="contact__list">
                 <% for(let contact of contact_list) { %>
                     <li class="contact">
-                        <p class="name"> <%= contact.name %> </p>
-                        <p class="phone"> <%= contact.phone %> </p>                
+                        <div class="contact__detail">
+                            <p class="name"> <%= contact.name %> </p>
+                            <p class="phone"> <%= contact.phone %> </p> 
+                        </div>
+                        <div class="contact__delete__button__container">
+                            <a href="/delete-contact/?phone=<%= contact.phone %>" class="delete__button">
+                                <i class="fas fa-user-times"></i>
+                            </a>
+                        </div>
+                                       
                     </li>
                 <% } %>
             </ul>

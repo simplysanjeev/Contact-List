@@ -41,7 +41,25 @@ body{
 .contact:hover{
     background-color: #a4a3a6;
 }
+.contact__detail{
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+.contact__delete__button__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.delete__button{
+    color: white;
+    margin-right: 5px;
+}
+
+.delete__button:hover{
+    color: red;
+}
 
 .name{
     line-height: 0px;

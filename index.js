@@ -39,6 +39,17 @@ app.post('/create-contact', function(request, response){
     return response.redirect('back');
 });
 
+app.get('/delete-contact/', function(request, response){
+    console.log(request.query);
+    let phone = request.query.phone;
+    console.log(phone.phone);
+    let contactIndex = contactList.findIndex(contact => contact.phone == phone);
+    console.log(contactIndex);
+    if(contactIndex != -1){
+        contactList.splice(contactIndex, 1);
+    }
+    return response.redirect('back');
+})
 app.listen(port, function(error){
     if(error){
         console.log("Error while starting the server");
